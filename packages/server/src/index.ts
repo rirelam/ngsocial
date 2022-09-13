@@ -1,9 +1,10 @@
-import express, { Application } from "express";import { ApolloServer } from "apollo-server-express";
-import casual from "casual";
+import express, { Application } from "express";import { ApolloServer } from "apollo-server-express";import casual from "casual";
 
 import schema from "./graphql/schema";
 
 import cors from "cors";
+
+import { AppDataSource } from './data-source';
 
 let postsIds: string[] = [];
 let usersIds: string[] = [];
@@ -62,12 +63,11 @@ const mocks = {
 
 async function startApolloServer() {
   const PORT = 8080;
+  console.log(`Arranca Apollo `);
   const app: Application = express();
   app.use(cors());
   const server: ApolloServer = new ApolloServer({
-    schema,
-    mocks: true,
-    mockEntireSchema: false
+    schema
   });
 
   await server.start();
@@ -82,4 +82,9 @@ async function startApolloServer() {
   });
 }
 
-startApolloServer();
+AppDataSource.initialize().then(async () => {
+  if (AppDataSource.isInitialized) {
+    startApolloServer();
+  }
+}).catch(error => console.log("Database connection error:", error));
+
