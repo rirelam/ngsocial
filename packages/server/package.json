@@ -1,0 +1,9 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "sever para ngsocial",
+  "main": "index.js",
+  "repository": "https://github.com/rirelam/ngsocial.git",
+  "author": "Lamar",
+  "license": "MIT"
+}
