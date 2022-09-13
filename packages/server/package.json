@@ -6,6 +6,9 @@
   "repository": "https://github.com/rirelam/ngsocial.git",
   "author": "Lamar",
   "license": "MIT",
+  "scripts": {
+    "start": "ts-node ./src/index.ts"
+  },
   "dependencies": {
     "express": "^4.18.1"
   },
