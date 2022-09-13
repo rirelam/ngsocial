@@ -5,5 +5,14 @@
   "main": "index.js",
   "repository": "https://github.com/rirelam/ngsocial.git",
   "author": "Lamar",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^18.7.17",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.3"
+  }
 }
