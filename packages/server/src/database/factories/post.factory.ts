@@ -1,8 +1,8 @@
-import { faker } from "@faker-js/faker";
-import { define, factory } from "typeorm-seeding";
-import { Post } from "../../entity/Post";
+import Faker from 'faker';
+import { define, factory } from 'typeorm-seeding';
+import { Post } from '../../entity/Post';
 
-define(Post, () => {
+define(Post, (faker: typeof Faker) => {
   const post = new Post();
   post.text = faker.lorem.text();
   post.image = faker.image.imageUrl();
